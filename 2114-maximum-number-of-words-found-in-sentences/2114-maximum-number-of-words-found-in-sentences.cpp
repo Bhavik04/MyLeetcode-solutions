@@ -1,0 +1,27 @@
+class Solution {
+public:
+     int mostWordsFound(vector<string>& sentences) {
+        
+        
+       int count =0;
+       int ans = 0; 
+    
+// Count the number of spaces
+        
+        for(int i=0; i<sentences.size(); i++){
+            
+            for(int j=0; j<sentences[i].size(); j++){
+                
+                if(sentences[i][j] == ' '){
+                    count++;
+                }
+            }
+// find max of space            
+            ans = max(ans,count);
+            count =0;
+            
+        }
+        
+      return ans+1;  
+    }
+};
