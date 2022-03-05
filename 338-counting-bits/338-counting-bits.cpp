@@ -1,9 +1,6 @@
 class Solution {
 public:
-    bool poweroftwo(int n){
-        if(n==0) return false;
-        return(ceil(log2(n))==floor(log2(n)));
-    }
+  
     
     vector<int> countBits(int n) {
         vector <int >ans;
@@ -12,12 +9,12 @@ public:
         
         
         if(n>=1) ans.push_back(1);
-        
+        int power;
         int count;
         for(int i=2;i<=n;i++){
-            if(poweroftwo(i)) ans.push_back(1);
+            if(  ceil(log2(i))==floor(log2(i))) {ans.push_back(1);power=i;}
             else{
-                ans.push_back(1+ans[i-pow(2,floor(log2(i)))]);
+                ans.push_back(1+ans[i-power]);
             }
             
             //cout<< floor(log2(i))<<" ";
