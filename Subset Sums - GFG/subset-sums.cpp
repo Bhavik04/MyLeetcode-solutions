@@ -11,8 +11,9 @@ public:
         if(ind==n){ans.push_back(sum);return;}
         
         //sum+=arr[i];
-        solve(ans,arr,n,sum+arr[ind],ind+1);
         solve(ans,arr,n,sum,ind+1);
+        solve(ans,arr,n,sum+arr[ind],ind+1);
+        
     }
     vector<int> subsetSums(vector<int> arr, int N)
     {
