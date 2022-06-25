@@ -1,19 +1,16 @@
 class Solution {
 public:
-    int firstMissingPositive(vector<int>& nums) {
+    int firstMissingPositive(vector<int>& A) {
+        int n=A.size();
+        for(int i = 0; i < n; ++ i)
+            while(A[i] > 0 && A[i] <= n && A[A[i] - 1] != A[i])
+                swap(A[i], A[A[i] - 1]);
         
-        unordered_map<int,int> umap;
+        for(int i = 0; i < n; ++ i)
+            if(A[i] != i + 1)
+                return i + 1;
         
-        
-        for(auto &x:nums){
-            umap[x]++;
-        }
-        
-        for(int i=1;i<=nums.size()+1;i++){
-            if(!umap.count(i))return i;
-        }
-        
+        return n + 1;
        
-        return -1;
     }
 };
